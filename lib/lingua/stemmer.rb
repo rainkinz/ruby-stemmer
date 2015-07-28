@@ -1,5 +1,7 @@
 if RUBY_PLATFORM =~/(mswin|mingw)/i
   require "lingua/#{RUBY_VERSION.sub(/\.\d+$/, '')}/stemmer_native"
+elsif RUBY_PLATFORM =~ /java/
+  require 'lingua/stemmer_java'
 else
   require 'lingua/stemmer_native'
 end

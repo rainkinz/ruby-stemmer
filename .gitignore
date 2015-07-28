@@ -10,3 +10,4 @@ mkmf.log
 *.bundle
 .idea/*
 stemmer.bundle
+.ruby-version

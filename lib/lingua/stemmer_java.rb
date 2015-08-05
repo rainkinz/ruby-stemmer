@@ -10,7 +10,8 @@ module Lingua
       'en' => 'english',
       'fr' => 'french',
       'de' => 'german',
-      'ro' => 'russian'
+      'ro' => 'russian',
+      'latin' => 'porter'
     }
 
     def native_init(lang_code, encoding)

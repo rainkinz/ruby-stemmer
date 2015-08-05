@@ -3,6 +3,10 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "lingua/version"
 
+def java?
+  /java/ === RUBY_PLATFORM
+end
+
 Gem::Specification.new do |s|
   s.name = "ruby-stemmer"
   s.version = Lingua::Stemmer::VERSION
@@ -15,7 +19,10 @@ Gem::Specification.new do |s|
 
   s.description = "Expose the bundled libstemmer_c library to Ruby."
   s.email = "oancea@gmail.com"
-  s.extensions = ["ext/lingua/extconf.rb"]
+  unless java?
+    s.extensions = ["ext/lingua/extconf.rb"]
+  end
+
   s.has_rdoc = true
   s.extra_rdoc_files = ["README.rdoc"]
   s.files = `git ls-files`.split("\n")
